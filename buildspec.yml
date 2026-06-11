@@ -1,18 +1,18 @@
 version: 0.2
 
 phases:
-  install:
+  pre_build:
     commands:
-      - echo "Installing"
+      - echo Logging into Amazon ECR...
 
   build:
     commands:
-      - echo "Building Website"
-      - ls
+      - echo Building Docker image...
+      - docker build -t simple-docker-service .
 
   post_build:
     commands:
-      - echo "Build Completed"
+      - echo Build completed
 
 artifacts:
   files:
